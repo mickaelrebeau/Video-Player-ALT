@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mike Videos Player</title>
+
+    <link rel="icon" type="image/png" sizes="40x40" href="./mike.png">
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <main>
+        <div class="text">
+            <h1>Git</h1>
+            <h2>Introduction et bonnes pratiques</h2>
+            <div class="author dropdown">
+                <h3>Autheurs <i class="fa-sharp fa-solid fa-circle-chevron-down"></i></h3>
+                <ul class="dropdown-content"> 
+                    <li>Batiste</li>
+                </ul>
+            </div>
+        </div>
+        <div class="video">
+            <div class="artplayer-app"></div>
+        </div>
+    </main>
+
+
+    <footer>
+        <div class="attribution">
+            Coded by <a href="https://github.com/mickaelrebeau">Mickael Rébeau</a>
+        </div>
+    </footer>
+
+    <script src="./node_modules/artplayer/dist/artplayer.js"></script>
+    <script>
+        const art = new Artplayer({
+            container: '.artplayer-app',
+            url: './video.mp4',
+            volume: 0.5,
+            isLive: false,
+            muted: false,
+            autoplay: false,
+            pip: true,
+            autoSize: true,
+            autoMini: true,
+            screenshot: true,
+            setting: true,
+            loop: true,
+            flip: true,
+            playbackRate: true,
+            aspectRatio: true,
+            fullscreen: true,
+            fullscreenWeb: true,
+            subtitleOffset: true,
+            miniProgressBar: true,
+            mutex: true,
+            backdrop: true,
+            playsInline: true,
+            autoPlayback: true,
+            airplay: true,
+            theme: '#23ade5',
+            lang: navigator.language.toLowerCase(),
+            moreVideoAttr: {
+                crossOrigin: 'anonymous',
+            },
+            contextmenu: [
+                {
+                    html: 'Custom menu',
+                    click: function (contextmenu) {
+                        console.info('You clicked on the custom menu');
+                        contextmenu.show = false;
+                    },
+                },
+            ],
+            quality: [
+                {
+                    default: true,
+                    html: 'SD 480P',
+                    url: './video.mp4',
+                },
+                {
+                    html: 'HD 720P',
+                    url: './video.mp4',
+                },
+            ],
+            highlight: [
+                {
+                    time: 15,
+                    text: 'One more chance',
+                }
+            ]
+        });
+    </script>
+    <script src="https://kit.fontawesome.com/22e3f50edc.js" crossorigin="anonymous"></script>
+</body>
+</html>
